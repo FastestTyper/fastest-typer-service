@@ -1,19 +1,19 @@
 package com.fastesttyper.fastesttyperservice.domain.usecase;
 
 import com.fastesttyper.fastesttyperservice.domain.model.Register;
-import com.fastesttyper.fastesttyperservice.domain.repositories.RegisterRepository;
+import com.fastesttyper.fastesttyperservice.domain.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegisterUseCase {
 
-    private final RegisterRepository registerRepository;
+    private final UserRepository userRepository;
 
-    public RegisterUseCase(RegisterRepository registerRepository) {
-        this.registerRepository = registerRepository;
+    public RegisterUseCase(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public void register(Register register) {
-        registerRepository.register(register);
+        userRepository.register(register);
     }
 }
