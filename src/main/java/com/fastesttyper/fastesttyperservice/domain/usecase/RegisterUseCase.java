@@ -1,6 +1,7 @@
 package com.fastesttyper.fastesttyperservice.domain.usecase;
 
 import com.fastesttyper.fastesttyperservice.domain.model.Register;
+import com.fastesttyper.fastesttyperservice.domain.model.User;
 import com.fastesttyper.fastesttyperservice.domain.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class RegisterUseCase {
         this.userRepository = userRepository;
     }
 
-    public void register(Register register) {
-        userRepository.register(register);
+    public User register(Register register) {
+        return userRepository.register(register);
     }
 }

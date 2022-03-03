@@ -5,31 +5,32 @@ import com.fastesttyper.fastesttyperservice.domain.model.User;
 import com.fastesttyper.fastesttyperservice.domain.repositories.UserRepository;
 import com.fastesttyper.fastesttyperservice.infrastructure.persistence.entities.UserEntity;
 import com.fastesttyper.fastesttyperservice.infrastructure.persistence.jpa.UserJPA;
-import com.fastesttyper.fastesttyperservice.infrastructure.persistence.mapper.UserMapper;
+import com.fastesttyper.fastesttyperservice.infrastructure.persistence.mapper.UserEntityMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
 public class UserRepositoryAdapter implements UserRepository {
-    private final UserMapper userMapper;
+    private final UserEntityMapper userEntityMapper;
     private final UserJPA userJPA;
 
-    public UserRepositoryAdapter(UserMapper userMapper, UserJPA userJPA) {
-        this.userMapper = userMapper;
+    public UserRepositoryAdapter(UserEntityMapper userEntityMapper, UserJPA userJPA) {
+        this.userEntityMapper = userEntityMapper;
         this.userJPA = userJPA;
     }
 
     @Override
-    public void register(Register register) {
-        UserEntity userEntity = userMapper.toEntity(register);
+    public User register(Register register) {
+        UserEntity userEntity = userEntityMapper.toEntity(register);
         userJPA.save(userEntity);
+        return userEntityMapper.toDomain(userEntity);
     }
 
     @Override
     public Optional<User> findByEmail(String email) {
         return userJPA.findByEmail(email)
-                .map(userMapper::toDomain)
+                .map(userEntityMapper::toDomain)
                 .or(Optional::empty);
     }
 }
