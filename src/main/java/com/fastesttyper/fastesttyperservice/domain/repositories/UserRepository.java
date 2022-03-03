@@ -6,6 +6,6 @@ import com.fastesttyper.fastesttyperservice.domain.model.User;
 import java.util.Optional;
 
 public interface UserRepository {
-    void register(Register register);
+    User register(Register register);
     Optional<User> findByEmail(String email);
 }
