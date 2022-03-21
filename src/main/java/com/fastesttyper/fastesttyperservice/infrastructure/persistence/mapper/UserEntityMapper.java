@@ -13,6 +13,6 @@ public class UserEntityMapper {
     }
 
     public User toDomain(UserEntity userEntity) {
-        return new User(userEntity.getAlias(), userEntity.getEmail(), userEntity.getPassword());
+        return new User(userEntity.getId(), userEntity.getAlias(), userEntity.getEmail(), userEntity.getPassword());
     }
 }
