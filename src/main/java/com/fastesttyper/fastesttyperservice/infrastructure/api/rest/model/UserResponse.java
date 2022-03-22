@@ -3,10 +3,12 @@ package com.fastesttyper.fastesttyperservice.infrastructure.api.rest.model;
 public class UserResponse {
     private String alias;
     private String email;
+    private Integer points;
 
-    public UserResponse(String alias, String email) {
+    public UserResponse(String alias, String email, Integer points) {
         this.alias = alias;
         this.email = email;
+        this.points = points;
     }
 
     public String getAlias() {
@@ -23,5 +25,13 @@ public class UserResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }

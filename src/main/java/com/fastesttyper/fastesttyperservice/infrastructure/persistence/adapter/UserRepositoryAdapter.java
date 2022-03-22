@@ -8,7 +8,9 @@ import com.fastesttyper.fastesttyperservice.infrastructure.persistence.jpa.UserJ
 import com.fastesttyper.fastesttyperservice.infrastructure.persistence.mapper.UserEntityMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class UserRepositoryAdapter implements UserRepository {
@@ -32,5 +34,13 @@ public class UserRepositoryAdapter implements UserRepository {
         return userJPA.findByEmail(email)
                 .map(userEntityMapper::toDomain)
                 .or(Optional::empty);
+    }
+
+    @Override
+    public List<User> findRanking() {
+        return userJPA.findTop10ByOrderByPointsDesc()
+                .stream()
+                .map(userEntityMapper::toDomain)
+                .collect(Collectors.toList());
     }
 }

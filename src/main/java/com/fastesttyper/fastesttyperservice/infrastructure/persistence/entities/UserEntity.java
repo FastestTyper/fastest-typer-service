@@ -17,14 +17,25 @@ public class UserEntity {
 
     private String password;
 
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+
+    private Integer points;
+
     public UserEntity() {
 
     }
 
-    public UserEntity(String alias, String email, String password) {
+    public UserEntity(String alias, String email, String password, Integer points) {
         this.alias = alias;
         this.email = email;
         this.password = password;
+        this.points = points;
     }
 
     public void setId(Long id) {

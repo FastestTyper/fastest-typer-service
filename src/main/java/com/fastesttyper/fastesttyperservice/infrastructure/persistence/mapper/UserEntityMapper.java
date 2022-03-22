@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserEntityMapper {
     public UserEntity toEntity(Register register) {
-        return new UserEntity(register.getAlias(), register.getEmail(), new BCryptPasswordEncoder().encode(register.getPassword()));
+        return new UserEntity(register.getAlias(), register.getEmail(), new BCryptPasswordEncoder().encode(register.getPassword()), 0);
     }
 
     public User toDomain(UserEntity userEntity) {
-        return new User(userEntity.getId(), userEntity.getAlias(), userEntity.getEmail(), userEntity.getPassword());
+        return new User(userEntity.getId(), userEntity.getAlias(), userEntity.getEmail(), userEntity.getPassword(), userEntity.getPoints());
     }
 }
