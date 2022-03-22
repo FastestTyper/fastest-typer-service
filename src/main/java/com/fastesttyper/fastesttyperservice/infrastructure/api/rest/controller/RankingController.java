@@ -3,7 +3,6 @@ package com.fastesttyper.fastesttyperservice.infrastructure.api.rest.controller;
 import com.fastesttyper.fastesttyperservice.domain.repositories.UserRepository;
 import com.fastesttyper.fastesttyperservice.infrastructure.api.rest.mapper.UserMapper;
 import com.fastesttyper.fastesttyperservice.infrastructure.api.rest.model.UserResponse;
-import com.fastesttyper.fastesttyperservice.infrastructure.persistence.entities.UserEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

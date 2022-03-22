@@ -30,8 +30,22 @@ public class UserRepositoryAdapter implements UserRepository {
     }
 
     @Override
+    public User update(User user) {
+        UserEntity userEntity = userEntityMapper.toEntity(user);
+        userJPA.save(userEntity);
+        return userEntityMapper.toDomain(userEntity);
+    }
+
+    @Override
     public Optional<User> findByEmail(String email) {
         return userJPA.findByEmail(email)
+                .map(userEntityMapper::toDomain)
+                .or(Optional::empty);
+    }
+
+    @Override
+    public Optional<User> findById(Long id) {
+        return userJPA.findById(id)
                 .map(userEntityMapper::toDomain)
                 .or(Optional::empty);
     }

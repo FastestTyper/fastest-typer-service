@@ -1,6 +1,8 @@
 package com.fastesttyper.fastesttyperservice.infrastructure.persistence.entities;
 
 import javax.persistence.*;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 public class UserEntity {
@@ -16,6 +18,9 @@ public class UserEntity {
     private String email;
 
     private String password;
+
+    @ManyToMany
+    private List<LessonEntity> completedLessons;
 
     public Integer getPoints() {
         return points;
@@ -36,6 +41,16 @@ public class UserEntity {
         this.email = email;
         this.password = password;
         this.points = points;
+        this.completedLessons = Collections.emptyList();
+    }
+
+    public UserEntity(Long id, String alias, String email, String password, Integer points, List<LessonEntity> lessonEntities) {
+        this.id = id;
+        this.alias = alias;
+        this.email = email;
+        this.password = password;
+        this.points = points;
+        this.completedLessons = lessonEntities;
     }
 
     public void setId(Long id) {
@@ -67,5 +82,13 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<LessonEntity> getCompletedLessons() {
+        return completedLessons;
+    }
+
+    public void setCompletedLessons(List<LessonEntity> completedLessons) {
+        this.completedLessons = completedLessons;
     }
 }
