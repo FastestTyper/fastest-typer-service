@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("login")
+@RequestMapping("typer")
 public class LoginController {
 
     private final JwtService jwtService;
@@ -23,8 +23,7 @@ public class LoginController {
         this.userRepository = userRepository;
     }
 
-    @PreAuthorize("authenticated")
-    @PostMapping
+    @PostMapping("login")
     public ResponseEntity<LoginResponse> login(@AuthenticationPrincipal User activeUser) {
         com.fastesttyper.fastesttyperservice.domain.model.User user = userRepository.findByEmail(activeUser.getUsername()).get();
         return  ResponseEntity.ok(new LoginResponse(jwtService.createToken(activeUser.getUsername(), user.getId().toString())));

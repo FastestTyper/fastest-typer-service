@@ -19,7 +19,7 @@ public class UserEntity {
 
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<LessonEntity> completedLessons;
 
     public Integer getPoints() {

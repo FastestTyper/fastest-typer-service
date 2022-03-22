@@ -9,8 +9,12 @@ public class LessonEntity {
     private Long id;
 
     private String title;
+
+    @Lob
+    @Column( length = 1000000 )
     private String text;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     private LessonTypeEntity type;
 
     public LessonEntity(Long id, String title, String text, LessonTypeEntity type) {

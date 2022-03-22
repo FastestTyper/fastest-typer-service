@@ -6,6 +6,7 @@ import com.fastesttyper.fastesttyperservice.infrastructure.persistence.jpa.Lesso
 import com.fastesttyper.fastesttyperservice.infrastructure.persistence.mapper.LessonEntityMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -23,5 +24,10 @@ public class LessonRepositoryAdapter implements LessonRepository {
         return lessonJPA.findById(id)
                 .map(lessonEntityMapper::toDomain)
                 .or(Optional::empty);
+    }
+
+    @Override
+    public List<Lesson> findAll() {
+        return lessonEntityMapper.toDomain(lessonJPA.findAll());
     }
 }
