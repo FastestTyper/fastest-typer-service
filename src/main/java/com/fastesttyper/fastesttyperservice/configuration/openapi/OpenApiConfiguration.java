@@ -1,4 +1,4 @@
-package com.fastesttyper.fastesttyperservice.configuration.swagger;
+package com.fastesttyper.fastesttyperservice.configuration.openapi;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import java.util.Collections;
 
 @Configuration
 @EnableWebMvc
-public class SwaggerConfiguration {
+public class OpenApiConfiguration {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.OAS_30)
