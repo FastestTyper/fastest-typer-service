@@ -38,7 +38,7 @@ public class LessonAudioRepositoryGoogleCloud implements LessonAudioRepository {
 
             AudioConfig audioConfig = AudioConfig.newBuilder()
                     .setAudioEncoding(AudioEncoding.MP3)
-                    .setSpeakingRate(0.90)
+                    .setSpeakingRate(0.80)
                     .build();
 
             SynthesizeSpeechResponse response = textToSpeechClient.synthesizeSpeech(input, voice, audioConfig);
