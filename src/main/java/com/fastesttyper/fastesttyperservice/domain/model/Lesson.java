@@ -8,11 +8,14 @@ public class Lesson {
     private final String text;
     private final LessonType type;
 
-    public Lesson(Long id, String title, String text, LessonType type) {
+    private String audioUrl;
+
+    public Lesson(Long id, String title, String text, LessonType type, String audioUrl) {
         this.id = id;
         this.title = title;
         this.text = text;
         this.type = type;
+        this.audioUrl = audioUrl;
     }
 
     public Long getId() {
@@ -29,6 +32,21 @@ public class Lesson {
 
     public LessonType getType() {
         return type;
+    }
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public Boolean isVideo() {
+        return this.type == LessonType.VIDEO;
+    }
+
+    public Boolean isText() {
+        return this.type == LessonType.TEXT;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl;
     }
 
     @Override

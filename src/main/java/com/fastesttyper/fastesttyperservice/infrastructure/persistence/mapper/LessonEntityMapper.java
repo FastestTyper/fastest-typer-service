@@ -24,7 +24,7 @@ public class LessonEntityMapper {
     }};
 
     public Lesson toDomain(LessonEntity lesson) {
-        return new Lesson(lesson.getId(), lesson.getTitle(), lesson.getText(), toDomain(lesson.getType()));
+        return new Lesson(lesson.getId(), lesson.getTitle(), lesson.getText(), toDomain(lesson.getType()), "??");
     }
 
     public List<Lesson> toDomain(List<LessonEntity> lesson) {
