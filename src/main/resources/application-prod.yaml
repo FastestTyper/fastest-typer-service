@@ -11,6 +11,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+  rabbitmq:
+    host: ${rabbitHost}
+    stomp:
+      port: ${rabbitPort}
+    username: ${rabbitUser}
+    password: ${rabbitPassword}
 management:
   endpoints:
     web:
