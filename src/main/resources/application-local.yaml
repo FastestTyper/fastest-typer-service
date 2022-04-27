@@ -15,4 +15,10 @@ spring:
   sql:
     init:
       mode: never
+  rabbitmq:
+    host: localhost
+    stomp:
+      port: 61613
+    username: guest
+    password: guest
 secretToken: secreto

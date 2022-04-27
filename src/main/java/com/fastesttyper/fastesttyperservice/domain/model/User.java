@@ -60,4 +60,16 @@ public class User {
     public List<Lesson> getCompletedLessons() {
         return completedLessons;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", alias='" + alias + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", points=" + points +
+                ", completedLessons=" + completedLessons +
+                '}';
+    }
 }
