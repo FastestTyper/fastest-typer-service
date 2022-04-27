@@ -35,4 +35,8 @@ public class OnlineAvailableEventPublisher implements InvitationRepository {
     public void sendText(Long userId, String text) {
         simpMessagingTemplate.convertAndSend("/topic/game" + userId, text);
     }
+
+    public void sendWin(Long userId, String gameId) {
+        simpMessagingTemplate.convertAndSend("/topic/win" + gameId + userId, "WIN");
+    }
 }

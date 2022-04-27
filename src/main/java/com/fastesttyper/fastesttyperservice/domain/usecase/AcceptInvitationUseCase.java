@@ -25,7 +25,7 @@ public class AcceptInvitationUseCase {
         }else {
             gameId =  UUID.randomUUID().toString();
         }
-        Game game = new Game(gameId, userId, invitingUserId, "texto de la partida");
+        Game game = new Game(gameId, userId, invitingUserId, gameRepository.retrieveRandomText());
         invitationRepository.accept(userId, invitationStatus, gameId);
         if (invitationStatus == InvitationStatus.YES) {
             gameRepository.save(game);

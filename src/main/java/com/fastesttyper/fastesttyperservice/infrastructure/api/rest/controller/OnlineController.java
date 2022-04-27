@@ -78,4 +78,10 @@ public class OnlineController {
         this.onlineAvailableEventPublisher.sendText(userId, sendTextRequest.getText());
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("{userId}/win/{gameId}")
+    public ResponseEntity<Void> sendWin(@PathVariable Long userId, @PathVariable String gameId) {
+        this.onlineAvailableEventPublisher.sendWin(userId, gameId);
+        return ResponseEntity.ok().build();
+    }
 }
